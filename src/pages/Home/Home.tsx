@@ -27,6 +27,10 @@ export default function Home() {
         navigate(`/customer/${id}`);
     }, [get, navigate]);
 
+    const navigateToCreateCustomer = () => {
+        navigate('/new-customer');
+    }
+
     useEffect(() => {
         handleGetCustomers(pageNumber, pageSize);
     }, [handleGetCustomers, pageNumber, pageSize]);
@@ -52,12 +56,12 @@ export default function Home() {
 
                         <S.Button style={{
                             width: '36px',
-                        }}>
+                        }} onClick={() => navigateToCreateCustomer()}>
                             <Plus size={24} />
                         </S.Button>
                     </div>
                     <S.CustomerContainer>
-                        {customers?.customers.length === 0 && (
+                        {customers?.customers.length == 0 && (
                             <S.CustomerRow>
                                 <span>Nenhum cliente encontrado</span>
                             </S.CustomerRow>

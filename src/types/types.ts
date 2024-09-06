@@ -33,3 +33,16 @@ export interface CustomerDetails {
     email: EmailResponse,
     address: AddressResponse
 }
+
+// REQUESTS
+
+export type EmailRequest = Omit<EmailResponse, 'email_id'>;
+
+export type AddressRequest = Omit<AddressResponse, 'address_id'>;
+
+export interface CustomerRequest {
+    name: string,
+    phone: string,
+    addresses: AddressRequest[],
+    emails: EmailRequest[]
+}
